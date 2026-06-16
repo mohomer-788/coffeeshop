@@ -1,0 +1,202 @@
+/* =========================
+   COFFEE SHOP PRO DESIGN SYSTEM
+   ========================= */
+
+:root {
+    /* Colors */
+    --primary: #5a341e;
+    --primary-2: #7b4b2a;
+    --accent: #c08a5b;
+    --bg: #f6f3ef;
+    --surface: #ffffff;
+    --text: #1f140e;
+    --muted: #7b6a61;
+
+    --success: #1f8a4c;
+    --danger: #d64545;
+
+    /* Radius */
+    --r-sm: 10px;
+    --r-md: 16px;
+    --r-lg: 28px;
+
+    /* Shadow (premium feel) */
+    --shadow-1: 0 4px 12px rgba(0,0,0,0.06);
+    --shadow-2: 0 10px 30px rgba(0,0,0,0.10);
+    --shadow-3: 0 18px 50px rgba(0,0,0,0.15);
+
+    /* Motion */
+    --t: 0.25s ease;
+}
+
+/* =========================
+   BASE
+   ========================= */
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Smooth text */
+h1, h2, h3 {
+    margin: 0;
+    font-weight: 700;
+}
+
+p {
+    color: var(--muted);
+}
+
+/* =========================
+   HEADER (PREMIUM)
+   ========================= */
+
+.header {
+    background: linear-gradient(135deg, var(--primary), var(--primary-2));
+    color: white;
+    padding: 18px 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: var(--shadow-2);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+/* =========================
+   CONTAINER SYSTEM
+   ========================= */
+
+.container {
+    width: min(1100px, 92%);
+    margin: auto;
+    padding: 24px 0;
+}
+
+/* =========================
+   CARDS (MODERN)
+   ========================= */
+
+.card {
+    background: var(--surface);
+    border-radius: var(--r-md);
+    padding: 18px;
+    box-shadow: var(--shadow-1);
+    transition: var(--t);
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-2);
+}
+
+/* =========================
+   BUTTONS (SAAS STYLE)
+   ========================= */
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 18px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    transition: var(--t);
+    box-shadow: var(--shadow-1);
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-2);
+}
+
+/* =========================
+   TABLE (ADMIN DASHBOARD LEVEL)
+   ========================= */
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--surface);
+    border-radius: var(--r-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-1);
+}
+
+.table th {
+    background: var(--primary);
+    color: white;
+    padding: 14px;
+    text-align: left;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+}
+
+.table td {
+    padding: 14px;
+    border-bottom: 1px solid #eee;
+}
+
+.table tr:hover {
+    background: #faf6f2;
+}
+
+/* =========================
+   FORM SYSTEM (CLEAN UX)
+   ========================= */
+
+input, textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: var(--r-sm);
+    border: 1px solid #ddd;
+    background: #fff;
+    transition: var(--t);
+    font-size: 14px;
+}
+
+input:focus, textarea:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 4px rgba(192,138,91,0.15);
+    outline: none;
+}
+
+/* =========================
+   TOTAL STYLE
+   ========================= */
+
+.total {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--primary);
+}
+
+/* =========================
+   NAV
+   ========================= */
+
+.nav {
+    background: var(--primary);
+    padding: 12px;
+    text-align: center;
+}
+
+.nav a {
+    color: white;
+    margin: 0 12px;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.nav a:hover {
+    color: var(--accent);
+}
