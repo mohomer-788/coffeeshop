@@ -57,7 +57,7 @@ if (isset($_POST['discount'])) {
     $percent = (float)$_POST['percent'];
 
     mysqli_query($conn,
-        "UPDATE products 
+        "UPDATE products
          SET price = price - (price * $percent / 100)
          WHERE name = '$name'"
     );
@@ -81,7 +81,6 @@ body{
     color:#2c1a0e;
 }
 
-/* HEADER */
 .header{
     background:linear-gradient(135deg,#2b1611,#6b3a2a);
     color:white;
@@ -91,14 +90,12 @@ body{
     font-weight:800;
 }
 
-/* CONTAINER */
 .container{
     width:92%;
     max-width:1100px;
     margin:25px auto;
 }
 
-/* BOX */
 .box{
     background:white;
     padding:18px;
@@ -107,7 +104,6 @@ body{
     margin-bottom:20px;
 }
 
-/* INPUTS */
 input{
     padding:10px;
     margin:6px 0;
@@ -116,7 +112,6 @@ input{
     border-radius:8px;
 }
 
-/* BUTTON */
 button{
     padding:10px 14px;
     background:#6b3a2a;
@@ -131,7 +126,6 @@ button:hover{
     background:#4b2e2a;
 }
 
-/* TABLE */
 table{
     width:100%;
     border-collapse:collapse;
@@ -163,7 +157,7 @@ td{
 
 <div class="container">
 
-<!-- ───────── ADD PRODUCT ───────── -->
+<!-- ADD PRODUCT -->
 <div class="box">
 <h3>Add Product</h3>
 
@@ -175,7 +169,7 @@ td{
 </form>
 </div>
 
-<!-- ───────── DISCOUNT ───────── -->
+<!-- DISCOUNT -->
 <div class="box">
 <h3>Discount by Name</h3>
 
@@ -186,7 +180,7 @@ td{
 </form>
 </div>
 
-<!-- ───────── PRODUCTS TABLE ───────── -->
+<!-- PRODUCTS -->
 <div class="box">
 <h3>Products</h3>
 
@@ -218,7 +212,52 @@ while($row = mysqli_fetch_assoc($result)){
 </table>
 </div>
 
-<!-- ───────── UPDATE PRICE ───────── -->
+<!-- ORDERS -->
+<div class="box">
+<h3>Orders Management</h3>
+
+<table>
+<tr>
+    <th>Order ID</th>
+    <th>Customer Name</th>
+    <th>Phone</th>
+    <th>Address</th>
+    <th>Total</th>
+    <th>Order Date</th>
+</tr>
+
+<?php
+
+$order_result = mysqli_query($conn,"
+SELECT
+orders.id,
+customers.name,
+customers.phone,
+customers.address,
+orders.total,
+orders.order_date
+FROM orders
+LEFT JOIN customers
+ON orders.customer_id = customers.id
+ORDER BY orders.id DESC
+");
+
+while($order = mysqli_fetch_assoc($order_result)){
+    echo "
+    <tr>
+        <td>{$order['id']}</td>
+        <td>{$order['name']}</td>
+        <td>{$order['phone']}</td>
+        <td>{$order['address']}</td>
+        <td>{$order['total']}</td>
+        <td>{$order['order_date']}</td>
+    </tr>";
+}
+?>
+</table>
+</div>
+
+<!-- UPDATE PRICE -->
 <div class="box">
 <h3>Update Price</h3>
 
